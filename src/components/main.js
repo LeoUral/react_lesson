@@ -10,7 +10,7 @@ class TableAll extends React.Component {
         const search = this.props.search;
         const checkBox = this.props.checkBox;
 
-        this.props.products.forEach(product => {
+        this.props.products.forEach((product) => {
             if (product.name.indexOf(search) === -1) {
                 return;
             }
@@ -50,6 +50,7 @@ class TableAll extends React.Component {
 class NameCategory extends React.Component {
     render() {
         const category = this.props.category;
+
         return (
             <tr className="category">
                 <td>
