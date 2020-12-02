@@ -1,11 +1,11 @@
-// import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Box from './components/box';
+import Main from './components/main';
 
 function App() {
   return (
-    <div className="box">
-      <Box />
+    <div>
+      <Main />
     </div>
   );
 }
