@@ -1,5 +1,4 @@
 import React from 'react';
-import action_1 from './actionCreator';
 import store from './store';
 
 export default class Indata extends React.Component {
@@ -15,9 +14,16 @@ export default class Indata extends React.Component {
         this.setState({ name: event.target.value });
         //обнавляем store с помощю dispatch, согласно прописанному  action_1
         //state - асинхронная, по этому делаем с задержкой
+        //зададим dispatch на прямую
         setTimeout(() => {
-            store.dispatch(action_1(this.state.name));
-        }, 500)
+            if (isNaN(this.state.name)) {
+                store.dispatch({ type: 'ACTION', value: this.state.name });
+                console.log('not number');
+            } else {
+                store.dispatch({ type: 'ADD', value: this.state.name });
+                console.log('number');
+            }
+        }, 50)
 
     }
 

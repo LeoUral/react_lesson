@@ -16,6 +16,7 @@ export default class Outdata extends React.Component {
 
         store.subscribe(() => {
             console.log(store.getState().value);
+            // this.handleClick();
         });
 
 

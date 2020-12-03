@@ -1,7 +1,8 @@
 //что бы напрямую dispatch не отправлять на reducer, т.к. это плохой тон.
 // прописываем actionCreator как аргумент для dispatch
 
-const { default: ACTION } = require("./actions");
+import ACTION from './actions';
+import ADD from './actions';
 
 function action_1(value) {
     return {
@@ -10,4 +11,11 @@ function action_1(value) {
     };
 }
 
-export default action_1;
+function add_1(value) {
+    return {
+        type: ADD,
+        value: value
+    };
+}
+
+export default (add_1, action_1);
