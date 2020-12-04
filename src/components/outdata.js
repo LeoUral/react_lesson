@@ -8,22 +8,29 @@ export default class Outdata extends React.Component {
         this.state = { val: '' };
     }
 
+    componentDidMount() {
+
+        store.subscribe(() => {
+            console.log(store.getState().value);
+            this.handleClick();
+        });
+    }
+
     handleClick() {
         this.setState({ val: store.getState().value });
     }
 
-    render() {
+    componentWillUnmount() {
+        store.unsubscribe();
+    }
 
-        store.subscribe(() => {
-            console.log(store.getState().value);
-            // this.handleClick();
-        });
+    render() {
 
 
         return (
             <>
                 <div>
-                    <button onClick={this.handleClick} >НАЖМИ</button>
+                    {/* <button onClick={this.handleClick} >НАЖМИ</button> */}
                 </div>
                 <div>
                     {this.state.val}

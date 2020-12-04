@@ -1,5 +1,7 @@
 import React from 'react';
 import store from './store';
+import action_1 from './actionCreator/action';
+import add_1 from './actionCreator/add';
 
 export default class Indata extends React.Component {
     constructor(props) {
@@ -17,10 +19,10 @@ export default class Indata extends React.Component {
         //зададим dispatch на прямую
         setTimeout(() => {
             if (isNaN(this.state.name)) {
-                store.dispatch({ type: 'ACTION', value: this.state.name });
+                store.dispatch(action_1(this.state.name));
                 console.log('not number');
             } else {
-                store.dispatch({ type: 'ADD', value: this.state.name });
+                store.dispatch(add_1(this.state.name));
                 console.log('number');
             }
         }, 50)
