@@ -10,6 +10,7 @@ export default class Outdata extends React.Component {
 
     componentDidMount() {
 
+        //отслеживает обновление store
         store.subscribe(() => {
             console.log(store.getState().value);
             this.handleClick();

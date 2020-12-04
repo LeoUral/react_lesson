@@ -14,9 +14,11 @@ export default class Indata extends React.Component {
 
     handleChange(event) {
         this.setState({ name: event.target.value });
+
         //обнавляем store с помощю dispatch, согласно прописанному  action_1
         //state - асинхронная, по этому делаем с задержкой
-        //зададим dispatch на прямую
+        //зададим dispatch через actionCreator
+
         setTimeout(() => {
             if (isNaN(this.state.name)) {
                 store.dispatch(action_1(this.state.name));
